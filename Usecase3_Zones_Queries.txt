@@ -1,0 +1,2 @@
+use test;
+SELECT * FROM test.film_actor;
