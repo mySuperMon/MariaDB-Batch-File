@@ -52,7 +52,7 @@ curl -v -H "Authorization: Bearer %accessToken%", -H "applicationIdentifier:%app
 In above the usecaseIdentifier parameter is passed to the start recording API. 
 
 
-5.4 Now pass your Usecase_Signup.txt as input and Signup_Result.txt as ouput file for storing the result, using this code
+5.4 Now pass your Usecase_Customer_Queries.txt as input and Result_Usecase1.txt as ouput file for storing the result, using this code
 ```ruby
 mysql -h localhost -P 3307 -uABC -pabc -D test < Usecase_Customer_Queries.txt > Result_Usecase1.txt
 ```
