@@ -1,14 +1,12 @@
 # MariaDB-Batch-File
-# mySuperMon MySQL Batch 
-Usage of batch file-
-Batch file is created to execute the multiple usecases at the same time. 
+Usage of batch file-Batch file is created to execute the multiple usecases at the same time. 
 
-Prerequisite for running  mySuperMon MySQL batch file
-First add your MySQL agent, application and data source of your application.
+Prerequisite for running  mySuperMon MariaDB batch file
+First add your MariaDB agent, application and data source of your application.
 
-Do the following changes in the MySQL batch files folder
+Do the following changes in the MariaDB batch files folder
 
-Step 1: In application_config.json file configure ServiceURL,Username, Password, ApplicationIdentifier, recordingStopperTime and UsecaseID like this
+Step 1: In Application_Configuration.json file configure ServiceURL,Username, Password, ApplicationIdentifier, recordingStopperTime and UsecaseID like this
 ```ruby
 {"serviceUrl":"https://app.mysupermon.com",
  "username":"Enter Your Username", 
@@ -20,21 +18,21 @@ Step 1: In application_config.json file configure ServiceURL,Username, Password,
 
 In above json configure your details. 
  
-Step 2: Create customer.txt file add the queries of the configured database.
+Step 2: Create Usecase_Customer_Queries.txt file add the queries of the configured database.
 
-Step 3: out_customer_Result.txt file is created to store the Usecase_Signup execution result.
+Step 3: Result_Usecase1.txt file is created to store the Usecase_Customer execution result.
 
 Step 4: The response.json file is created in order to store the report of the usecase after executed
 
-Step 5: In startStopRecording.bat file the start/stop functinality using start/stop API of mySupermMon is implemented.
+Step 5: In start and Stop Recording.bat file the start/stop functionality using start/stop API of mySupermMon is implemented.
 
-5.1 Configured all the details specified in application-config.json in start/stop batch file using this below code
+5.1 Configured all the details specified in Application_Configuration.json in start/stop batch file using this below code
 ```ruby
-more application_config.json | jq-win64.exe ".serviceUrl" >> temp.txt
+more Application_Configuration.json | jq-win64.exe ".serviceUrl" >> temp.txt
 set /p serviceUrl=<temp.txt
 del -f temp.txt
 ```
-You just need add your application-config.json file here
+You just need to add your Application_Configuration.json file here
 
 5.2 Generated the access token using configured application details using this code
 ```ruby
@@ -56,7 +54,7 @@ In above the usecaseIdentifier parameter is passed to the start recording API.
 
 5.4 Now pass your Usecase_Signup.txt as input and Signup_Result.txt as ouput file for storing the result, using this code
 ```ruby
-mysql -h localhost -P 3306 -uABC -pabc -D konakart < Usecase_customer.txt > Customer_Usecase_Result.txt
+mysql -h localhost -P 3307 -uABC -pabc -D test < Usecase_Customer_Queries.txt > Result_Usecase1.txt
 ```
 In above code -h is Host name, -P is Port of host, -u is username, -p is password and -D for giving database name
 
