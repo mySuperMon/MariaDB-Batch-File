@@ -43,13 +43,13 @@ del -f temp.txt
 del -f accessToken.txt
 if %accessToken%==null (goto :showMessage)
 ```
-In above code the curl is is a free command line tool. It uses URL syntax to transfer data to and from servers.
+In above code, the curl is a free command line tool. It uses URL syntax to transfer data to and from servers.
 
 5.3 Start recording of mySuperMon using start reccording API 
 ```ruby
 curl -v -H "Authorization: Bearer %accessToken%", -H "applicationIdentifier:%applicationIdentifier%" -X GET %serviceUrl%devaten/data/startRecording?usecaseIdentifier="Signup"
 ```
-In above the usecaseIdentifier parameter is passed to the start recording API. 
+In above, the usecaseIdentifier parameter is passed to the start recording API. 
 
 
 5.4 Now pass your Usecase_Customer_Queries.txt as input and Result_Usecase1.txt as ouput file for storing the result, using this code
